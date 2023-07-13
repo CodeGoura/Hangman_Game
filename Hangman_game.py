@@ -53,7 +53,7 @@ def played_again():
         else:
             print('Kindly check your input- Invalid Input!, Enter only (y/n)')
 
-def main_game():
+def main_game(score):
 #Game Start message
     print(f'::::::: welcome to Hangman Game :::::::\n :::::::::     {gammer_title} {Gammer_name}    :::::::::')
     word =Select_rendom()
@@ -72,18 +72,18 @@ def main_game():
                 print(f'Congratulations! You guessed the word {word} correctly. You win!')
                 # game_score=game_score+1
                 break
-            else:
-                print('Incorrect guess!')
-                incorrect_attempts += 1
-                if incorrect_attempts == 26:
-                    print('You have run out of attempts. Game Over!')
-                    break
+        else:
+            print('Incorrect guess!')
+            incorrect_attempts += 1
+            if incorrect_attempts == 26:
+                print('You have run out of attempts. Game Over!')
+                break
     if not played_again():
-        print(f'Thank you for playing Hangman, {gammer_title} {Gammer_name}.')
+        print(f'Thank you for playing Hangman, {gammer_title} {Gammer_name} and  your score is {score}.')
     else:
         print('Starting a new game...\n')
-        main_game()
-main_game()
+        main_game(score+1)
+main_game(1)
 
 
 
